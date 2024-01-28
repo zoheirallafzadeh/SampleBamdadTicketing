@@ -1,7 +1,17 @@
+using System;
+using App.Infa.Data.Db.SqlServer.Ef.DbCtx;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+    ;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Database=BamdadShopDb1;").LogTo(Console.WriteLine));
 
 var app = builder.Build();
 

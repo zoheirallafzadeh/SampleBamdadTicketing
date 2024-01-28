@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace App.Domain.Core.Tickets.Entities
 {
@@ -10,8 +6,10 @@ namespace App.Domain.Core.Tickets.Entities
     {
         public int Id { get; set; }
         public string Text { get; set; }
+        public Ticket Ticket { get; set; }
         public DateTime Time { get; set; }
         public List <Attache> Attaches { get; set; }
+        public Users.Entitis.User ?ExpertUser { get; set; }
 
     }
 }
