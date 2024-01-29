@@ -16,6 +16,7 @@ namespace App.Infa.Data.Db.SqlServer.Ef.DbCtx
         {
             base.OnConfiguring(optionsBuilder);
         }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Unit> Units { get; set; }
         public DbSet<UnitPart> Parts { get; set; }

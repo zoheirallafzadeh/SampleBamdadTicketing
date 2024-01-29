@@ -66,7 +66,8 @@ namespace App.Infa.Data.Db.SqlServer.Ef.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UnitId = table.Column<int>(type: "int", nullable: false),
+                    UnitId = table.Column<int>(type: "int", nullable: true),
+                    UnitPartId = table.Column<int>(type: "int", nullable: true),
                     State = table.Column<int>(type: "int", nullable: false),
                     CustomerUserId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -74,11 +75,15 @@ namespace App.Infa.Data.Db.SqlServer.Ef.Migrations
                 {
                     table.PrimaryKey("PK_Tickets", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Tickets_Parts_UnitPartId",
+                        column: x => x.UnitPartId,
+                        principalTable: "Parts",
+                        principalColumn: "Id");
+                    table.ForeignKey(
                         name: "FK_Tickets_Units_UnitId",
                         column: x => x.UnitId,
                         principalTable: "Units",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Tickets_Users_CustomerUserId",
                         column: x => x.CustomerUserId,
@@ -162,6 +167,11 @@ namespace App.Infa.Data.Db.SqlServer.Ef.Migrations
                 name: "IX_Tickets_UnitId",
                 table: "Tickets",
                 column: "UnitId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tickets_UnitPartId",
+                table: "Tickets",
+                column: "UnitPartId");
         }
 
         /// <inheritdoc />
@@ -171,19 +181,19 @@ namespace App.Infa.Data.Db.SqlServer.Ef.Migrations
                 name: "Attache");
 
             migrationBuilder.DropTable(
-                name: "Parts");
-
-            migrationBuilder.DropTable(
                 name: "Messeges");
 
             migrationBuilder.DropTable(
                 name: "Tickets");
 
             migrationBuilder.DropTable(
-                name: "Units");
+                name: "Parts");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Units");
         }
     }
 }

@@ -88,7 +88,10 @@ namespace App.Infa.Data.Db.SqlServer.Ef.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UnitId")
+                    b.Property<int?>("UnitId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UnitPartId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -96,6 +99,8 @@ namespace App.Infa.Data.Db.SqlServer.Ef.Migrations
                     b.HasIndex("CustomerUserId");
 
                     b.HasIndex("UnitId");
+
+                    b.HasIndex("UnitPartId");
 
                     b.ToTable("Tickets");
                 });
@@ -202,13 +207,17 @@ namespace App.Infa.Data.Db.SqlServer.Ef.Migrations
 
                     b.HasOne("App.Domain.Core.Units.Entities.Unit", "Unit")
                         .WithMany()
-                        .HasForeignKey("UnitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UnitId");
+
+                    b.HasOne("App.Domain.Core.Units.Entities.UnitPart", "UnitPart")
+                        .WithMany()
+                        .HasForeignKey("UnitPartId");
 
                     b.Navigation("CustomerUser");
 
                     b.Navigation("Unit");
+
+                    b.Navigation("UnitPart");
                 });
 
             modelBuilder.Entity("App.Domain.Core.Units.Entities.UnitPart", b =>

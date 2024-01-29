@@ -1,6 +1,8 @@
 ﻿using App.Domain.Core.Tickets.Enum;
 using App.Domain.Core.Units.Entities;
 using App.Domain.Core.Users.Entitis;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.Metadata;
 
 namespace App.Domain.Core.Tickets.Entities
 {
@@ -9,8 +11,8 @@ namespace App.Domain.Core.Tickets.Entities
         public int Id { get; set; }
         public string Title { get; set; }
         public List<Messege> Messeges { get; set; }
-        public Unit Unit { get; set; }
-        //public UnitPart UnitPart { get; set; }
+        public Unit? Unit { get; set; }
+        public UnitPart? UnitPart { get; set; }
         public StateEnum State { get; set; }
         public User CustomerUser { get; set; }
 
