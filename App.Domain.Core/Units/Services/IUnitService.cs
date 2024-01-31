@@ -15,7 +15,7 @@ namespace App.Domain.Core.Units.Services
 
 
         public Task<List<UnitDto>?> GetAllUnits(CancellationToken cancellationToken);
-        public Task<List<UnitDto>?> GetUnit(int UnitId, CancellationToken cancellationToken);
+        public Task<UnitDto>? GetUnit(int UnitId, CancellationToken cancellationToken);
         public Task<List<UnitPartDto>?> GetUnitParts(int UnitId , CancellationToken cancellationToken);
     }
 }

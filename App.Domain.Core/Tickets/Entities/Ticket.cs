@@ -8,13 +8,12 @@ namespace App.Domain.Core.Tickets.Entities
 {
     public class Ticket
     {  
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public List<Messege> Messeges { get; set; }
+        public required int Id { get; set; }
+        public required string Title { get; set; }
+        public required List<Messege> Messeges { get; set; }
         public Unit? Unit { get; set; }
         public UnitPart? UnitPart { get; set; }
-        public StateEnum State { get; set; }
-        public User CustomerUser { get; set; }
-
+        public required StateEnum State { get; set; }
+        public required User CustomerUser { get; set; }
     }
 }

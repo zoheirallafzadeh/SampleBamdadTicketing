@@ -9,9 +9,10 @@ namespace App.Domain.Core.Units.DTOs
 {
     public class UnitDto
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public List<int> PartsId { get; set; }
+        public required int Id { get; set; }
+        public required string Name { get; set; }
+        public string? Description { get; set; }
+        public List<int>? PartsId { get; set; }
+        public List<int>? ManagerUsersId { get; set; }
     }
 }
