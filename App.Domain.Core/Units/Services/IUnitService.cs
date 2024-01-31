@@ -10,11 +10,12 @@ namespace App.Domain.Core.Units.Services
     public interface IUnitService
     {
         public Task Add(UnitDto Unit, CancellationToken cancellationToken);
+        public Task Delete(int UnitId, CancellationToken cancellationToken);
+        public Task Update(UnitDto Unit, CancellationToken cancellationToken);
 
 
-
-        public Task<List<UnitDto>?> GetUnits(CancellationToken cancellationToken);
-        public Task<List<UnitDto>> GetUnit(int UnitId, CancellationToken cancellationToken);
-        public Task<List<UnitPartDto>> GetUnitParts(CancellationToken cancellationToken);
+        public Task<List<UnitDto>?> GetAllUnits(CancellationToken cancellationToken);
+        public Task<List<UnitDto>?> GetUnit(int UnitId, CancellationToken cancellationToken);
+        public Task<List<UnitPartDto>?> GetUnitParts(int UnitId , CancellationToken cancellationToken);
     }
 }

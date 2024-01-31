@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using App.Domain.Core.Units.Data.Repositories;
+using App.Domain.Core.Units.DTOs;
 
 namespace App.Infra.Data.Repos.Ef.Units
 {
-    internal class UnitQueryRepository
+    public class UnitQueryRepository : IUnitQueryRepository
     {
+        public Task<List<UnitDto>?> GetAllUnits(CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<UnitDto>?> GetUnit(int UnitId, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<UnitPartDto>?> GetUnitParts(int UnitId, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
