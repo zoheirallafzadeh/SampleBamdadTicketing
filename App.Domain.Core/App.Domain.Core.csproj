@@ -9,16 +9,18 @@
   <ItemGroup>
     <Folder Include="Tickets\AppServices\" />
     <Folder Include="Tickets\Data\" />
+    <Folder Include="Tickets\DTOs\" />
     <Folder Include="Tickets\Services\" />
     <Folder Include="Units\AppServices\" />
     <Folder Include="Units\Data\" />
     <Folder Include="Units\DTOs\" />
     <Folder Include="Units\Enum\" />
     <Folder Include="Units\Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.1" />
+    <Folder Include="Users\AppServices\" />
+    <Folder Include="Users\Data\" />
+    <Folder Include="Users\DTOs\" />
+    <Folder Include="Users\Enum\" />
+    <Folder Include="Users\Services\" />
   </ItemGroup>
 
 </Project>

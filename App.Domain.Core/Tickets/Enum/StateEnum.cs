@@ -14,6 +14,5 @@ namespace App.Domain.Core.Tickets.Enum
         CustomerPending,
         ClosedByCustomer,
         ClosedByExport
-
     }
 }
