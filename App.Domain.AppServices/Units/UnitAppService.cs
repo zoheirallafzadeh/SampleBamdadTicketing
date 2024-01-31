@@ -1,17 +1,13 @@
 ﻿using App.Domain.Core.Units.AppServices;
 using App.Domain.Core.Units.DTOs;
 using App.Domain.Core.Units.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App.Domain.AppServices.Units
 {
     public class UnitAppService : IUnitAppService
     {
         private readonly IUnitService _unitService;
+        public UnitAppService(IUnitService unitService) => _unitService = unitService;
         public async Task Add(UnitDto Unit, CancellationToken cancellationToken)
         {
             await _unitService.Add(Unit, cancellationToken);
@@ -27,7 +23,7 @@ namespace App.Domain.AppServices.Units
             return await _unitService.GetAllUnits(cancellationToken);
         }
 
-        public async Task<List<UnitDto>?> GetUnit(int UnitId, CancellationToken cancellationToken)
+        public async Task<UnitDto>? GetUnit(int UnitId, CancellationToken cancellationToken)
         {
             return await _unitService.GetUnit(UnitId, cancellationToken);
         }

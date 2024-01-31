@@ -9,12 +9,12 @@ namespace App.Domain.Core.Tickets.DTOs
 {
     public class TicketDto
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public List<int> MessegesId { get; set; }
+        public required int Id { get; set; }
+        public required string Title { get; set; }
+        public required List<int> MessegesId { get; set; }
         public int? UnitId { get; set; }
         public int? UnitPartId { get; set; }
-        public StateEnum State { get; set; }
-        public int CustomerUserId { get; set; }
+        public required StateEnum State { get; set; }
+        public required int CustomerUserId { get; set; }
     }
 }
