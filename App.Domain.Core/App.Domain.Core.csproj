@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Tickets\AppServices\" />
-    <Folder Include="Tickets\Data\" />
-    <Folder Include="Tickets\DTOs\" />
-    <Folder Include="Tickets\Services\" />
     <Folder Include="Units\AppServices\" />
     <Folder Include="Units\Data\" />
     <Folder Include="Units\DTOs\" />
