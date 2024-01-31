@@ -14,7 +14,7 @@ namespace App.Infra.Data.Repos.Ef.Units
         }
         public async Task<List<UnitDto>?> GetAllUnits(CancellationToken cancellationToken)
         {
-            return await _dbContext.Units.AsNoTracking().Select(p=>new UnitDto
+            return await _dbContext.Units.AsNoTracking().Select(p => new UnitDto
             {
                 Id = p.Id,
                 Name = p.Name,
@@ -32,9 +32,14 @@ namespace App.Infra.Data.Repos.Ef.Units
             }).FirstOrDefaultAsync(cancellationToken);
         }
 
-        public Task<List<UnitPartDto>?> GetUnitParts(int UnitId, CancellationToken cancellationToken)
+        public async Task<List<UnitPartDto>?> GetUnitParts(int UnitId, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Parts.AsNoTracking().Where(p => p.Unit.Id == UnitId).Select(p => new UnitPartDto
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Description = p.Description
+            }).ToListAsync(cancellationToken);
         }
     }
 }
