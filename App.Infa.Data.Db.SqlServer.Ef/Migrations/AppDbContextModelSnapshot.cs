@@ -114,7 +114,6 @@ namespace App.Infa.Data.Db.SqlServer.Ef.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -164,7 +163,12 @@ namespace App.Infa.Data.Db.SqlServer.Ef.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UnitId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UnitId");
 
                     b.ToTable("Users");
                 });
@@ -231,6 +235,13 @@ namespace App.Infa.Data.Db.SqlServer.Ef.Migrations
                     b.Navigation("Unit");
                 });
 
+            modelBuilder.Entity("App.Domain.Core.Users.Entitis.User", b =>
+                {
+                    b.HasOne("App.Domain.Core.Units.Entities.Unit", null)
+                        .WithMany("MnagerUsers")
+                        .HasForeignKey("UnitId");
+                });
+
             modelBuilder.Entity("App.Domain.Core.Tickets.Entities.Messege", b =>
                 {
                     b.Navigation("Attaches");
@@ -243,6 +254,8 @@ namespace App.Infa.Data.Db.SqlServer.Ef.Migrations
 
             modelBuilder.Entity("App.Domain.Core.Units.Entities.Unit", b =>
                 {
+                    b.Navigation("MnagerUsers");
+
                     b.Navigation("Parts");
                 });
 #pragma warning restore 612, 618
