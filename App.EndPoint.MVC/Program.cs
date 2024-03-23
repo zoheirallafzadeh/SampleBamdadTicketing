@@ -1,5 +1,12 @@
-using System;
+
+using App.Domain.AppServices.Units;
+using App.Domain.Core.Units.AppServices;
+using App.Domain.Core.Units.Data.Repositories;
+using App.Domain.Core.Units.Services;
+using App.Domain.Services.Units;
 using App.Infa.Data.Db.SqlServer.Ef.DbCtx;
+using App.Infra.Data.Repos.Ef.Units;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -12,6 +19,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Database=BamdadShopDb1;").LogTo(Console.WriteLine));
+
+
+builder.Services.AddScoped<IUnitAppService , UnitAppService>();
+builder.Services.AddScoped<IUnitService, UnitService>();
+builder.Services.AddScoped<IUnitQueryRepository, UnitQueryRepository>();
+builder.Services.AddScoped<IUnitCommandRepository, UnitCommandRepository>();
+
+
+
 
 var app = builder.Build();
 
