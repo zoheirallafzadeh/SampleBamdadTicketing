@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Units\AppServices\" />
     <Folder Include="Units\Data\" />
-    <Folder Include="Units\DTOs\" />
     <Folder Include="Units\Enum\" />
     <Folder Include="Units\Services\" />
     <Folder Include="Users\AppServices\" />

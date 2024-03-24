@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using App.Domain.Core.Units.AppServices;
+﻿using App.Domain.Core.Units.AppServices;
 using App.EndPoint.MVC.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-namespace App.EndPoint.MVC.Controllers
+namespace App.EndPoint.MVC.Areas.Admin.Controllers
 {
+
+    [Area("Admin")]
+    //[Authorize(Roles = "Admin")]
     public class UnitController : Controller
     {
         private readonly IUnitAppService _unitAppService;
@@ -11,6 +15,9 @@ namespace App.EndPoint.MVC.Controllers
         {
             _unitAppService = unitAppService;
         }
+
+
+        [HttpGet]
         public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
             var Units = await _unitAppService.GetAllUnits(cancellationToken);
@@ -23,18 +30,13 @@ namespace App.EndPoint.MVC.Controllers
             );
             return View(unitViewModels);
         }
-        [HttpPost]
-        public async Task<IActionResult> Add(string name ,CancellationToken cancellationToken)
-        {
 
-            return RedirectToAction("Index");
-        }
         [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
 
-
+        
     }
 }

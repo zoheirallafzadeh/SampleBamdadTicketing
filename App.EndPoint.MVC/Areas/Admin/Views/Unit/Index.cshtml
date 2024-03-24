@@ -1,13 +1,17 @@
 ﻿@model IEnumerable<App.EndPoint.MVC.Models.UnitViewModel>
 @{
-    
+    // ViewData["Title"] = "Edit Page Unit";
+    // Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<a asp-action="Add">افزودن محصول جدید</a>
+
+
+<a asp-action="Add">افزودن </a>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-               @Html.DisplayNameFor(model => model.Id)
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
@@ -33,11 +37,12 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
 
-@*                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td> *@
+
+                @*                 <td>
+            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td> *@
             </tr>
         }
     </tbody>
