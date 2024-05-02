@@ -18,7 +18,7 @@ namespace App.EndPoint.MVC.Areas.Admin.Controllers
         }
 
 
-        [HttpPost]
+        
         public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
             var Units = await _unitAppService.GetAllUnits(cancellationToken);
@@ -31,17 +31,18 @@ namespace App.EndPoint.MVC.Areas.Admin.Controllers
             );
             return View(unitViewModels);
         }
-
         [HttpPost]
+        public async Task<IActionResult> Add(AddUnitDto addUnitDto, CancellationToken cancellationToken)
+        {
+
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
-        [HttpGet]
-        public async Task<IActionResult> Add(AddUnitDto addUnitDto , CancellationToken cancellationToken)
-        {
-            return RedirectToAction();
-        }
+    
         
     }
 }
