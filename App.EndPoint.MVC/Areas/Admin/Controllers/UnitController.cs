@@ -1,4 +1,5 @@
 ﻿using App.Domain.Core.Units.AppServices;
+using App.Domain.Core.Units.DTOs;
 using App.EndPoint.MVC.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,7 @@ namespace App.EndPoint.MVC.Areas.Admin.Controllers
         }
 
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> Index(CancellationToken cancellationToken)
         {
             var Units = await _unitAppService.GetAllUnits(cancellationToken);
@@ -31,12 +32,16 @@ namespace App.EndPoint.MVC.Areas.Admin.Controllers
             return View(unitViewModels);
         }
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult Add()
         {
             return View();
         }
-
+        [HttpGet]
+        public async Task<IActionResult> Add(AddUnitDto addUnitDto , CancellationToken cancellationToken)
+        {
+            return RedirectToAction();
+        }
         
     }
 }

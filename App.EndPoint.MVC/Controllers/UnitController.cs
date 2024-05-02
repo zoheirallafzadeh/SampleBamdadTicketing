@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using App.Domain.Core.Units.AppServices;
 using App.EndPoint.MVC.Models;
+using App.Domain.Core.Units.DTOs;
 
 namespace App.EndPoint.MVC.Controllers
 {
@@ -24,7 +25,7 @@ namespace App.EndPoint.MVC.Controllers
             return View(unitViewModels);
         }
         [HttpPost]
-        public async Task<IActionResult> Add(string name ,CancellationToken cancellationToken)
+        public async Task<IActionResult> Add(AddUnitDto addUnitDto,CancellationToken cancellationToken)
         {
 
             return RedirectToAction("Index");

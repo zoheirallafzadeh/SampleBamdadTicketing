@@ -1,11 +1,4 @@
-﻿using App.Domain.Core.Units.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace App.Domain.Core.Units.DTOs
+﻿namespace App.Domain.Core.Units.DTOs
 {
     public class UnitPartDto
     {

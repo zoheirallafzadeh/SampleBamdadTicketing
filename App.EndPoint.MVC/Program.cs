@@ -18,7 +18,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Database=BamdadShopDb1;").LogTo(Console.WriteLine));
+builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(@"Server=DESKTOP-OG56BKU;Integrated Security=true;Database=BamdadShopDb1;TrustServerCertificate=True;").LogTo(Console.WriteLine));
 
 
 builder.Services.AddScoped<IUnitAppService , UnitAppService>();

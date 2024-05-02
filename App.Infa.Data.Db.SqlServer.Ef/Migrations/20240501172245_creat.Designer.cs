@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Infa.Data.Db.SqlServer.Ef.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240323103457_creat")]
+    [Migration("20240501172245_creat")]
     partial class creat
     {
         /// <inheritdoc />
