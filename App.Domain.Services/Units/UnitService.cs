@@ -13,7 +13,7 @@ namespace App.Domain.Services.Units
             _unitCommandRepository = unitCommandRepository;
             _unitQueryRepository = unitQueryRepository;
         }
-        public async Task Add(UnitDto Unit, CancellationToken cancellationToken)
+        public async Task Add(AddUnitDto Unit, CancellationToken cancellationToken)
         {
             await _unitCommandRepository.Add(Unit, cancellationToken);
         }
