@@ -1,6 +1,5 @@
 ﻿using App.Domain.Core.Tickets.Enum;
 using App.Domain.Core.Units.Entities;
-using App.Domain.Core.Users.Entitis;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Metadata;
 
@@ -14,6 +13,6 @@ namespace App.Domain.Core.Tickets.Entities
         public Unit? Unit { get; set; }
         public UnitPart? UnitPart { get; set; }
         public required StateEnum State { get; set; }
-        public required User CustomerUser { get; set; }
+        public required int CustomerUserID { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace App.Domain.Core.Units.Services
 {
     public interface IUnitService
     {
-        public Task Add(UnitDto Unit, CancellationToken cancellationToken);
+        public Task Add(AddUnitDto Unit, CancellationToken cancellationToken);
         public Task Delete(int UnitId, CancellationToken cancellationToken);
         public Task Update(UnitDto Unit, CancellationToken cancellationToken);
 

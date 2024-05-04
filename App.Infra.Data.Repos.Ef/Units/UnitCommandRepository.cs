@@ -13,11 +13,11 @@ namespace App.Infra.Data.Repos.Ef.Units
         {
             _dbContext = dbContext;
         }
-        public async Task Add(UnitDto Unit, CancellationToken cancellationToken)
+        public async Task Add(AddUnitDto Unit, CancellationToken cancellationToken)
         {
             Unit newUnit = new()
             {
-                Id = Unit.Id,
+                Id = 0,
                 Name = Unit.Name,
                 Description = Unit.Description,
             };

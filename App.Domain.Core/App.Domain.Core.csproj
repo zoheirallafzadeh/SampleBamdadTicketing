@@ -11,11 +11,6 @@
     <Folder Include="Units\Data\" />
     <Folder Include="Units\Enum\" />
     <Folder Include="Units\Services\" />
-    <Folder Include="Users\AppServices\" />
-    <Folder Include="Users\Data\" />
-    <Folder Include="Users\DTOs\" />
-    <Folder Include="Users\Enum\" />
-    <Folder Include="Users\Services\" />
   </ItemGroup>
 
 </Project>

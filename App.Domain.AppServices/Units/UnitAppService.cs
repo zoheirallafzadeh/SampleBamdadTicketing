@@ -8,7 +8,7 @@ namespace App.Domain.AppServices.Units
     {
         private readonly IUnitService _unitService;
         public UnitAppService(IUnitService unitService) => _unitService = unitService;
-        public async Task Add(UnitDto Unit, CancellationToken cancellationToken)
+        public async Task Add(AddUnitDto Unit, CancellationToken cancellationToken)
         {
             await _unitService.Add(Unit, cancellationToken);
         }

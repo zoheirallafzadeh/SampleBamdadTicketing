@@ -1,12 +1,10 @@
-﻿@model IEnumerable<App.EndPoint.MVC.Models.UnitViewModel>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<App.EndPoint.MVC.Models.UnitViewModel>
 @{
-    // ViewData["Title"] = "Edit Page Unit";
-    // Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "add units on admin area";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-<a asp-action="Add">افزودن </a>
-
+<a asp-action="Add">افزودن قسمت جدید</a>
 <table class="table">
     <thead>
         <tr>
@@ -37,12 +35,13 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
 
-
-                @*                 <td>
-            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td> *@
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> | 
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    
+                  
+                </td>
             </tr>
         }
     </tbody>

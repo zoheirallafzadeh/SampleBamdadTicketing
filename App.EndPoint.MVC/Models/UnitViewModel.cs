@@ -10,5 +10,6 @@ namespace App.EndPoint.MVC.Models
         public required string Name { get; set; }
         [Display(Name = "توضیحات")]
         public string? Description { get; set; }
+
     }
 }
