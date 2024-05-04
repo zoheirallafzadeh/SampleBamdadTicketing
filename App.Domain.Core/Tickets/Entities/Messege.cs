@@ -1,5 +1,4 @@
-﻿using App.Domain.Core.Users.Entitis;
-
+﻿
 namespace App.Domain.Core.Tickets.Entities
 {
     public class Messege
@@ -9,6 +8,6 @@ namespace App.Domain.Core.Tickets.Entities
         public required Ticket Ticket { get; set; }
         public required DateTime Time { get; set; }
         public List<Attache>? Attaches { get; set; }
-        public User? ExpertUser { get; set; }
+        public int? ExpertUserID { get; set; }
     }
 }

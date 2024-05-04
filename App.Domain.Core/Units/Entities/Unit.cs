@@ -1,5 +1,4 @@
-﻿using App.Domain.Core.Users.Entitis;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +12,6 @@ namespace App.Domain.Core.Units.Entities
         public required string Name { get; set; }
         public string? Description { get; set; }
         public List<UnitPart>? Parts { get; set; }
-        public List<User>? MnagerUsers { get; set; }
+        public List<int>? MnagerUsersID { get; set; }
     }
 }

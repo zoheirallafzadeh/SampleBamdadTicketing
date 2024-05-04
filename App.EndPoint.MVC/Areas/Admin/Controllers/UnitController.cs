@@ -11,7 +11,7 @@ namespace App.EndPoint.MVC.Areas.Admin.Controllers
 {
 
     [Area("Admin")]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class UnitController : Controller
     {
         private readonly IUnitAppService _unitAppService;

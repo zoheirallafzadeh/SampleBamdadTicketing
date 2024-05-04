@@ -18,7 +18,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(@"Server=DESKTOP-OG56BKU;Integrated Security=true;Database=BamdadShopDb1;TrustServerCertificate=True;").LogTo(Console.WriteLine));
+builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(@"Server=DESKTOP-OG56BKU;Integrated Security=true;Database=BamdadShopDb3;TrustServerCertificate=True;").LogTo(Console.WriteLine));
+
+builder.Services.AddIdentity<User, Role>(option =>
+{
+    option.Password.RequireUppercase = false;
+    option.Password.RequireLowercase = false;
+    option.Password.RequireNonAlphanumeric = false;
+    option.Password.RequiredLength = 6;
+    option.Password.RequiredUniqueChars = 2;
+}
+).AddEntityFrameworkStores<AppDbContext>();
+
 
 
 builder.Services.AddScoped<IUnitAppService , UnitAppService>();
@@ -44,6 +55,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 
